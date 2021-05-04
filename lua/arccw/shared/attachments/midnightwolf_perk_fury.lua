@@ -18,7 +18,7 @@ att.Slot = {"go_perk",  "dod_perk", "bo1_perk"}
 
 att.Override_PhysTracerProfile = 5
 
-att.Mult_ReloadTime = 0.975
+att.Mult_ReloadTime = 0.9
 att.Mult_SightTime = 0.95
 att.Mult_CycleTime = 0.9
 att.Mult_HipDispersion = 0.85

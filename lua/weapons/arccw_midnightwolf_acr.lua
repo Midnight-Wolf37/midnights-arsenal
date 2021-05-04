@@ -90,9 +90,9 @@ SWEP.SightedSpeedMult = 0.8
 SWEP.SightTime = 0.3
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-4.982, -8.5, 0.35),
+    Pos = Vector(-4.986, -2, 0.35),
 	Ang = Angle(0, 0, 0),
-    Magnification = 1.1,
+    Magnification = 1,
     SwitchToSound = "", -- sound that plays when switching to this sight
     CrosshairInSights = false
 }
@@ -109,11 +109,15 @@ SWEP.ActiveAng = Angle(0, 0, -3.75)
 SWEP.CrouchPos = Vector(-6.5, -5, -1)
 SWEP.CrouchAng = Angle(0, 0, -35)
 
-SWEP.HolsterPos = Vector(3, 3, 0)
-SWEP.HolsterAng = Angle(-7.036, 30.016, 0)
+SWEP.HolsterPos = Vector(2, 0, -0.84)
+SWEP.HolsterAng = Angle(-7.739, 18.291, -9.146)
 
 SWEP.CustomizePos = Vector(8, -2, 1)
 SWEP.CustomizeAng = Angle(5, 30, 30)
+
+SWEP.SprintPos = Vector(2, 0, -0.84)
+SWEP.SprintAng = Angle(-7.739, 18.291, -9.146)
+
 
 SWEP.BarrelLength = 24
 
@@ -134,8 +138,7 @@ SWEP.AttachmentElements = {
         VMBodygroups = {{ind = 1, bg = 5}}
     },
 	["long"] = {
-        VMBodygroups = {{ind = 3, bg = 1}},
-        VMBodygroups = {{ind = 4, bg = 1}},
+        VMBodygroups = {{ind = 2, bg = 1}, {ind = 3, bg = 1}},
         AttPosMods = {
             [5] = {
                 vpos = Vector(0, 0, 2),
@@ -144,8 +147,7 @@ SWEP.AttachmentElements = {
         }
     },
 	["short"] = {
-        VMBodygroups = {{ind = 3, bg = 2}},
-        VMBodygroups = {{ind = 4, bg = 2}},
+        VMBodygroups = {{ind = 2, bg = 2}, {ind = 3, bg = 2}},
         AttPosMods = {
             [5] = {
                 vpos = Vector(0, 0, -2),
@@ -154,10 +156,10 @@ SWEP.AttachmentElements = {
         }
     },
 	["nofh"] = {
-        VMBodygroups = {{ind = 4, bg = 3}}
+        VMBodygroups = {{ind = 3, bg = 3}}
     },
 	["irons"] = {
-        VMBodygroups = {{ind = 5, bg = 1}}
+        VMBodygroups = {{ind = 4, bg = 1}}
     },
 }
 
@@ -179,33 +181,39 @@ SWEP.Attachments = {
         Bone = "main",
         DefaultAttName = "Iron Sights",
         Offset = {
-            vpos = Vector(3.049, 4.774, 0.861),
-            vang = Angle(-90, 0, 90),
+            vpos = Vector(0, -2.211, 1.045),
+            vang = Angle(90, 0, -90),
+        },
+        SlideAmount = {
+            vmax = Vector(0, -2.211, 5.714),
+            vmin = Vector(0, -2.211, -1.722)
         },
         VMScale = Vector(1, 1, 1),
-        CorrectiveAng = Angle(0, 0, 0)
+        CorrectiveAng = Angle(0, 0, 0),
+        InstalledEles = {"irons"}
     },
     {
         PrintName = "Underbarrel",
         Slot = "foregrip",
         Bone = "main",
         Offset = {
-            vpos = Vector(2.93, 0, -7),
-            vang = Angle(-90, 0, 90),
+            vpos = Vector(0, 0.55, 12.4),
+            vang = Angle(90, 0, -90),
         },
+        MergeSlots = {11}
     },
     {
         PrintName = "Tactical",
         Slot = "tac",
         Bone = "main",
         Offset = {
-            vpos = Vector(2.5, 2, -13),
-            vang = Angle(-90, 0, 0),
+            vpos = Vector(-1.086, -0.722, 11.083), 
+            vang = Angle(90, 0, 180),
         },
     },
     {
         PrintName = "Barrel",
-        Slot = "mdinightwolf_acr_barrel"
+        Slot = "midnightwolf_acr_barrel"
     },
     {
         PrintName = "Muzzle",
@@ -215,6 +223,7 @@ SWEP.Attachments = {
             vpos = Vector(0, 0, 0),
             vang = Angle(90, 0, -90),
         },
+        InstalledEles = {"nofh"}
     },
     {
         PrintName = "Magazine",
@@ -250,11 +259,27 @@ SWEP.Attachments = {
         Slot = "ubgl",
         Bone = "main",
         Offset = {
-            vpos = Vector(0, 0, 0),
-            vang = Angle(90, 0, -90)
-        }
+            vpos = Vector(0, 1.652, 5.122),
+            vang = Angle(90, 0, -90),
+        },
     }
 }
+
+SWEP.Hook_ModifyBodygroups = function(wep, data)
+    local vm = data.vm
+    local eles = data.eles
+    for i, k in pairs(eles or {}) do
+        if k == "nofh" and wep.Attachments[4].Installed == "midnightwolf_acr_barrel_short" then
+            vm:SetBodygroup(3, 3)
+        end
+        if k == "nofh" and wep.Attachments[2].Installed == "midnightwolf_acr_barrel_long" then
+            vm:SetBodygroup(3, 3)
+        end
+        if k == "irons" then
+            vm:SetBodygroup(4, 1)
+        end
+    end
+end
 
 local path = "weapons/arccw/midnightwolf/acr/"
 
@@ -288,7 +313,7 @@ SWEP.Animations = {
         Source = "reload",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
-            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magout.ogg", 	 t = 23/60},
             {s = path .. "magin.ogg",    t = 70/60},
 		},
         FrameRate = 60,
@@ -300,9 +325,9 @@ SWEP.Animations = {
         Source = "reload_empty",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
-            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magout.ogg", 	 t = 23/60},
             {s = path .. "magin.ogg",    t = 70/60},
-            {s = path .. "boltdrop.ogg", t = 109},
+            {s = path .. "boltdrop.ogg", t = 108/60},
 		},
         FrameRate = 60,
         LHIK = true,
@@ -327,7 +352,7 @@ SWEP.Animations = {
 		SoundTable = {
             {s = path .. "magout.ogg", 	 t = 28/60},
             {s = path .. "magin.ogg",    t = 70/60},
-            {s = path .. "boltdrop.ogg", t = 109}
+            {s = path .. "boltdrop.ogg", t = 108/60}
 		},
         FrameRate = 60,
         LHIK = true,

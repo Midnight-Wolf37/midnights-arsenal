@@ -5,12 +5,12 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "ACR"
 SWEP.Trivia_Class = "Assault Rifle"
-SWEP.Trivia_Desc = "ACR my beloved <3."
+SWEP.Trivia_Desc = "Advanced lightweight rifle with the ability to be reconfigured for different operations."
 SWEP.Trivia_Manufacturer = "Remington"
 SWEP.Trivia_Calibre = "5.56x45mm NATO"
 SWEP.Trivia_Mechanism = "Gas-Operated"
-SWEP.Trivia_Country = "Germany"
-SWEP.Trivia_Year = 2002
+SWEP.Trivia_Country = "USA"
+SWEP.Trivia_Year = 2010
 
 SWEP.Slot = 2
 
@@ -21,9 +21,9 @@ SWEP.WorldModel = "models/weapons/arccw/midnightwolf/arccw_midnightwolf_acr.mdl"
 SWEP.ViewModelFOV = 70
 SWEP.ViewModelFlip = false
 
-SWEP.DefaultBodygroups = "00000000"
+SWEP.DefaultBodygroups = "000000000"
 
-SWEP.Damage = 30
+SWEP.Damage = 32
 SWEP.DamageMin = 24 -- damage done at maximum range
 SWEP.Range = 100 -- in METRES
 SWEP.Penetration = 11
@@ -71,10 +71,10 @@ SWEP.ShootSound = "weapons/arccw/midnightwolf/acr/fire.ogg"
 SWEP.ShootSoundSilenced = "weapons/arccw/midnightwolf/acr/fire_supp.ogg"
 SWEP.DistantShootSound = "weapons/arccw/midnightwolf/acr/fire_dist.ogg"
 
-SWEP.MeleeSwingSound = "arccw_go/m249/m249_draw.ogg"
-SWEP.MeleeMissSound = "weapons/iceaxe/iceaxe_swing1.ogg"
-SWEP.MeleeHitSound = "arccw_go/knife/knife_hitwall1.ogg"
-SWEP.MeleeHitNPCSound = "physics/body/body_medium_break2.ogg"
+SWEP.MeleeSwingSound = "arccw_go/m249/m249_draw.wav"
+SWEP.MeleeMissSound = "weapons/iceaxe/iceaxe_swing1.wav"
+SWEP.MeleeHitSound = "arccw_go/knife/knife_hitwall1.wav"
+SWEP.MeleeHitNPCSound = "physics/body/body_medium_break2.wav"
 
 SWEP.MuzzleEffect = "muzzleflash_4"
 SWEP.ShellModel = "models/shells/shell_556.mdl"
@@ -86,8 +86,8 @@ SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectAttachment = 2 -- which attachment to put the case effect on
 
 SWEP.SpeedMult = 0.93
-SWEP.SightedSpeedMult = 0.7
-SWEP.SightTime = 0.30
+SWEP.SightedSpeedMult = 0.8
+SWEP.SightTime = 0.3
 
 SWEP.IronSightStruct = {
     Pos = Vector(-4.982, -8.5, 0.35),
@@ -118,100 +118,46 @@ SWEP.CustomizeAng = Angle(5, 30, 30)
 SWEP.BarrelLength = 24
 
 SWEP.AttachmentElements = {
-	["xm8_reciever_scoped"] = {
-		VMBodygroups = {{ind = 5, bg = 1}}
-	},
-    ["xm8_stock_sl8"] = {
-        VMBodygroups = {{ind = 4, bg = 4}}
+	["60"] = {
+        VMBodygroups = {{ind = 1, bg = 3}}
     },
-    ["xm8_stock_light"] = {
-        VMBodygroups = {{ind = 4, bg = 3}}
+	["40"] = {
+        VMBodygroups = {{ind = 1, bg = 2}}
     },
-    ["xm8_stock_pdw"] = {
-        VMBodygroups = {{ind = 4, bg = 2}}
+	["20"] = {
+        VMBodygroups = {{ind = 1, bg = 1}}
     },
-	["go_stock"] = {
-		VMBodygroups = {{ind = 4, bg = 5}},
-		 VMElements = {
-            {
-                Model = "models/weapons/arccw_go/atts/stock_buftube_lp.mdl",
-                Bone = "XM8",
-                Offset = {
-                    pos = Vector(3.07, 2.338, 7.863),
-                    ang = Angle(-90, 0, 90),
-                },
-            }
-        },
-	},
-	["go_stock_none"] = {
-		VMBodygroups = {{ind = 4, bg = 5}}
-	},
-	["xm8_barrel_sniper"] = {
-        VMBodygroups = {
-            {ind = 1, bg = 2}
-        },
-		VMElements = {
-            {
-				Model = "models/props_junk/PopCan01a.mdl",
-				Bone = "XM8",
-				Offset = {
-					pos = Vector(3.131, 1.6, -11),
-				},
-				Scale = Vector(0, 0, 0),
-				IsMuzzleDevice = True
-			}
-        },
+	["9mm"] = {
+        VMBodygroups = {{ind = 1, bg = 4}}
+    },
+	["9mm_short"] = {
+        VMBodygroups = {{ind = 1, bg = 5}}
+    },
+	["long"] = {
+        VMBodygroups = {{ind = 3, bg = 1}},
+        VMBodygroups = {{ind = 4, bg = 1}},
         AttPosMods = {
             [5] = {
-                vpos = Vector(3.131, 1.6, -21),
+                vpos = Vector(0, 0, 2),
+                vang = Angle(90, 0, -90)
             }
         }
     },
-    ["xm8_barrel_compact"] = {
-        VMBodygroups = {
-			{ind = 1, bg = 1}
-        },
-		VMElements = {
-			{
-				Model = "models/props_junk/PopCan01a.mdl",
-				Bone = "XM8",
-				Offset = {
-					pos = Vector(3.131, 1.6, -11),
-				},
-				Scale = Vector(0, 0, 0),
-				IsMuzzleDevice = True
-			}
-        },
-		AttPosMods = {
+	["short"] = {
+        VMBodygroups = {{ind = 3, bg = 2}},
+        VMBodygroups = {{ind = 4, bg = 2}},
+        AttPosMods = {
             [5] = {
-                vpos = Vector(3.131, 1.6, -11),
+                vpos = Vector(0, 0, -2),
+                vang = Angle(90, 0, -90)
             }
         }
     },
-	["xm8_irons_none"] = {
-		VMBodygroups = {
-			{ind = 3, bg = 2}
-		}
-	},
-	["xm8_irons_compact"] = {
-		VMBodygroups = {
-			{ind = 3, bg = 1}
-		}
-	},
-    ["xm8_mag_cmag"] = {
-        VMBodygroups = {{ind = 2, bg = 1}},
+	["nofh"] = {
+        VMBodygroups = {{ind = 4, bg = 3}}
     },
-	["xm8_skin_red"] = {
-        VMSkin = 1
-    },
-	["xm8_skin_darkgreen"] = {
-        VMSkin = 3
-    },
-	["xm8_skin_blue"] = {
-        VMSkin = 2
-    },
-	["xm8_skin_black"] = {
-        VMSkin = 4
+	["irons"] = {
+        VMBodygroups = {{ind = 5, bg = 1}}
     },
 }
 
@@ -230,7 +176,7 @@ SWEP.Attachments = {
     {
         PrintName = "Optic",
         Slot = {"optic", "optic_lp"},
-        Bone = "XM8",
+        Bone = "main",
         DefaultAttName = "Iron Sights",
         Offset = {
             vpos = Vector(3.049, 4.774, 0.861),
@@ -241,8 +187,8 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Underbarrel",
-        Slot = {"foregrip", "ubgl", "bipod"},
-        Bone = "XM8",
+        Slot = "foregrip",
+        Bone = "main",
         Offset = {
             vpos = Vector(2.93, 0, -7),
             vang = Angle(-90, 0, 90),
@@ -251,7 +197,7 @@ SWEP.Attachments = {
     {
         PrintName = "Tactical",
         Slot = "tac",
-        Bone = "XM8",
+        Bone = "main",
         Offset = {
             vpos = Vector(2.5, 2, -13),
             vang = Angle(-90, 0, 0),
@@ -259,36 +205,26 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Barrel",
-        Slot = "xm8_barrel",
-        DefaultAttName = "320mm Carbine Barrel",
-		DefaultAttIcon = Material("entities/xm8_barrel_default.png", "mips smooth")
+        Slot = "mdinightwolf_acr_barrel"
     },
     {
         PrintName = "Muzzle",
         Slot = "muzzle",
-        Bone = "XM8",
+        Bone = "muzzle",
         Offset = {
-            vpos = Vector(3.131, 1.6, -15),
-            vang = Angle(-90, 0, 90),
+            vpos = Vector(0, 0, 0),
+            vang = Angle(90, 0, -90),
         },
-        WMScale = Vector(0.7, 0.7, 0.7),
-        DefaultAttName = "OICW Flash Hider"
     },
     {
         PrintName = "Magazine",
-        DefaultAttName = "30-Round 5.56mm Polymer Mag",
-        Slot = "acr_mag"
+        DefaultAttName = "30-Round 5.56mm Magazine",
+        Slot = "midnightwolf_acr_mag"
     },
     {
         PrintName = "Stock",
         Slot = "stock",
-		Bone = "main",
-		Offset = {
-			vpos = Vector(3, 2.338, 7.363),
-			vang = Angle(-90, 0, 90),
-		},
-        DefaultAttName = "Standard Stock",
-		DefaultAttIcon = Material("entities/xm8_stock_default.png", "mips smooth")
+        DefaultAttName = "Standard Stock"
     },
     {
         PrintName = "Ammo Type",
@@ -303,27 +239,21 @@ SWEP.Attachments = {
         PrintName = "Charm",
         Slot = "charm",
         FreeSlot = true,
-        Bone = "XM8", -- relevant bone any attachments will be mostly referring to
+        Bone = "main", -- relevant bone any attachments will be mostly referring to
         Offset = {
             vpos = Vector(3.599, 2.355, 1.68), -- offset that the attachment will be relative to the bone
             vang = Angle(-90, 0, 90),
         }
     },
-	{
-		PrintName = "Paint",
-		Slot = "xm8_skin",
-		DefaultAttName = "Olive Drab Paint"
-	},
-	{
-        Slot = "xm8_scope",
-        FreeSlot = true,
+    {
+        Hidden = true,
+        Slot = "ubgl",
+        Bone = "main",
         Offset = {
-            vpos = Vector(3.049, 4.774, 0.861),
-            vang = Angle(-90, 0, 90),
-        },
-        VMScale = Vector(1, 1, 1),
-        CorrectiveAng = Angle(0, 0, 0)
-    },
+            vpos = Vector(0, 0, 0),
+            vang = Angle(90, 0, -90)
+        }
+    }
 }
 
 local path = "weapons/arccw/midnightwolf/acr/"
@@ -339,41 +269,69 @@ SWEP.Animations = {
         Source = "deploy",
         SoundTable = {
             {s = path .. "chback.ogg", 	 t = 0.025},
-            {s = path .. "chamber.ogg",    t = 0.2},
+            {s = path .. "chamber.ogg",    t = 18/60},
 		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKOut = 0.3,
     },
     ["fire"] = {
-        Source = "shoot1",
+        Source = "fire",
         ShellEjectAt = 0,
     },
 	["fire_empty"] = {
-        Source = "shoot1",
+        Source = "fire",
         ShellEjectAt = 0,
     },
     ["reload"] = {
         Source = "reload",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
-            {s = path .. "magout.ogg", 	 t = 0.2},
-            {s = path .. "magin.ogg",    t = 1.0},
+            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magin.ogg",    t = 70/60},
 		},
-        Checkpoints = {16, 30},
-        FrameRate = 30,
+        FrameRate = 60,
         LHIK = true,
-        LHIKIn = 1/30,
+        LHIKIn = 0.2,
         LHIKOut = 0.2,
     },
     ["reload_empty"] = {
         Source = "reload_empty",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
-            {s = path .. "magout.ogg", 	 t = 0.2},
-            {s = path .. "magin.ogg",    t = 1.0},
-            {s = path .. "boltdrop.ogg", t = 1.7},
+            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+            {s = path .. "boltdrop.ogg", t = 109},
 		},
-        FrameRate = 30,
+        FrameRate = 60,
         LHIK = true,
-        LHIKIn = 1/30,
+        LHIKIn = 0.2,
+        LHIKOut = 0.2,
+    },
+    ["reload_9mm"] = {
+        Source = "reload_9mm",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0.2,
+    },
+    ["reload_empty_9mm"] = {
+        Source = "reload_9mm_empty",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+            {s = path .. "boltdrop.ogg", t = 109}
+		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0.2,
         LHIKOut = 0.2,
     },
     ["enter_inspect"] = false,

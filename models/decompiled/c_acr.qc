@@ -3,9 +3,6 @@ $modelname "weapons\arccw\midnightwolf\arccw_midnightwolf_acr.mdl"
 $bodygroup "studio"
 {
 	studio "main.smd"
-    blank
-	studio "c_arms_combine_c_arms_citizen.smd"
-	studio "c_arms_combine_c_arms_citizen_glove.smd"
 }
 $bodygroup "mag"
 {
@@ -13,6 +10,8 @@ $bodygroup "mag"
     studio "mag_20.smd"
     studio "mag_pmag40.smd"
     studio "mag_60.smd"
+	studio "mag_9mm.smd"
+	studio "mag_9mm_short.smd"
 }
 $bodygroup "barrel"
 {
@@ -149,10 +148,10 @@ $bonemerge "ValveBiped.Bip01_R_Finger02"
 $bonemerge "mag"
 
 
-$attachment "muzzle" "muzzle" 0 0 0 rotate 0 90 0
+$attachment "muzzle" "muzzle" 0 0 0 rotate 0 0 0
 $attachment "shell" "eject" 0 0 0 rotate 180 0 0
-$attachment "muzzle_long" "muzzle_long" 0 0 0 rotate 0 90 0
-$attachment "muzzle_short" "muzzle_short" 0 0 0 rotate 0 90 0
+$attachment "muzzle_long" "muzzle_long" 0 0 0 rotate 0 0 0
+$attachment "muzzle_short" "muzzle_short" 0 0 0 rotate 0 0 0
 
 $cbox 0 0 0 0 0 0
 
@@ -188,6 +187,13 @@ $sequence "fire" {
 
 $sequence "deploy" {
 	"anims\deploy.smd"
+	activity "ACT_VM_DRAW" 1
+	snap
+	fps 60
+}
+
+$sequence "draw" {
+	"anims\draw.smd"
 	activity "ACT_VM_DRAW" 1
 	snap
 	fps 60

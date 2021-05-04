@@ -1,11 +1,11 @@
 Vertexlitgeneric
 {
-   "$basetexture"	"models\weapons\v_models\ACR\sightsdown_ao"
-   "$bumpmap"   "models\weapons\v_models\ACR\sightsdown_normal"
+   "$basetexture"	"models\weapons\arccw\midnightwolf\acr\sightsdown_ao"
+   "$bumpmap"   "models\weapons\arccw\midnightwolf\acr\sightsdown_normal"
 
 $nocull 1
  
-	"$phongexponenttexture" 	"models\weapons\v_models\ACR\sightsdown_spec"
+	"$phongexponenttexture" 	"models\weapons\arccw\midnightwolf\acr\sightsdown_spec"
 
 	"$normalmapalphaenvmapmask" "1"
 	"$normalmapalphaphongmask"    "1"

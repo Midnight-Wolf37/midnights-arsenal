@@ -1,0 +1,10 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/weapons/v_models/ACR/naboj"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ 0.2 0.2 0.2 ]"
+                "$rimlight" "1"
+                "$rimlightexponent" "80"	
+                "$rimlightboost" "0.2"
+
+}

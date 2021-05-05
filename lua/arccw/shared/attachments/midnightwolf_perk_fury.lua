@@ -10,7 +10,7 @@ att.Desc_Pros = {
 }
 att.Desc_Cons = {
 }
-att.Desc_Neutral = {
+att.Desc_Neutrals = {
     "\"Does Vermont Exist?\" -Midnight_Wolf"
 }
 att.AutoStats = false

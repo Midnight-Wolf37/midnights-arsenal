@@ -305,6 +305,11 @@ SWEP.Animations = {
         Source = "fire",
         ShellEjectAt = 0,
     },
+    ["fire_iron"] = {
+        Source = "fire",
+        Time = 0.5,
+        ShellEjectAt = 0,
+    },
 	["fire_empty"] = {
         Source = "fire",
         ShellEjectAt = 0,

@@ -250,8 +250,8 @@ SWEP.Attachments = {
         FreeSlot = true,
         Bone = "main", -- relevant bone any attachments will be mostly referring to
         Offset = {
-            vpos = Vector(3.599, 2.355, 1.68), -- offset that the attachment will be relative to the bone
-            vang = Angle(-90, 0, 90),
+            vpos = Vector(0.5, 0, 1.68), -- offset that the attachment will be relative to the bone
+            vang = Angle(90, 0, -90),
         }
     },
     {
@@ -259,7 +259,7 @@ SWEP.Attachments = {
         Slot = "ubgl",
         Bone = "main",
         Offset = {
-            vpos = Vector(0, 1.652, 5.122),
+            vpos = Vector(0, 0.55, 10.4),
             vang = Angle(90, 0, -90),
         },
     }
@@ -303,11 +303,6 @@ SWEP.Animations = {
     },
     ["fire"] = {
         Source = "fire",
-        ShellEjectAt = 0,
-    },
-    ["fire_iron"] = {
-        Source = "fire",
-        Time = 0.5,
         ShellEjectAt = 0,
     },
 	["fire_empty"] = {

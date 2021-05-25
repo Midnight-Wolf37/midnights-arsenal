@@ -33,4 +33,13 @@ att.Hook_GetShootSound = function(wep, ss)
     end
 end
 
+
+att.Hook_SelectReloadAnimation = function(wep, anim)
+    if anim == "reload" then
+        return "reload_20"
+    elseif anim == "reload_empty" then
+        return "reload_empty_20"
+    end
+end
+
 att.ActivateElements = {"20"}

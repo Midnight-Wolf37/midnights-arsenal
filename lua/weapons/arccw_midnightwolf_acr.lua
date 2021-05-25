@@ -137,6 +137,9 @@ SWEP.AttachmentElements = {
 	["9mm_short"] = {
         VMBodygroups = {{ind = 1, bg = 5}}
     },
+	["9mm_drum"] = {
+        VMBodygroups = {{ind = 1, bg = 6}}
+    },
 	["long"] = {
         VMBodygroups = {{ind = 2, bg = 1}, {ind = 3, bg = 1}},
         AttPosMods = {
@@ -160,6 +163,22 @@ SWEP.AttachmentElements = {
     },
 	["irons"] = {
         VMBodygroups = {{ind = 4, bg = 1}}
+    },
+	["go_stock"] = {
+        VMBodygroups = {{ind = 5, bg = 1}},
+        VMElements = {
+            {
+                Model = "models/weapons/arccw_go/atts/stock_buftube_lp.mdl",
+                Bone = "main",
+                Offset = {
+                    pos = Vector(0, -0.087, -4.129),
+                    ang = Angle(90, 0, -90),
+                },
+            }
+        },
+    },
+	["go_stock_none"] = {
+        VMBodygroups = {{ind = 5, bg = 1}}
     },
 }
 
@@ -232,7 +251,12 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Stock",
-        Slot = "stock",
+        Slot = {"stock", "go_stock", "go_stock_none"},
+        Bone = "main",
+        Offset = {
+            vpos = Vector(0, -0.087, -4.129),
+            vang = Angle(90, 0, -90),
+        },
         DefaultAttName = "Standard Stock"
     },
     {
@@ -287,6 +311,9 @@ SWEP.Animations = {
     ["idle"] = {
         Source = "idle",
     },
+    ["idle_empty"] = {
+        Source = "idle_empty",
+    },
     ["draw"] = {
         Source = "draw",
     },
@@ -305,8 +332,16 @@ SWEP.Animations = {
         Source = "fire",
         ShellEjectAt = 0,
     },
+    ["fire_iron"] = {
+        Source = "fire_iron",
+        ShellEjectAt = 0,
+    },
 	["fire_empty"] = {
-        Source = "fire",
+        Source = "fire_empty",
+        ShellEjectAt = 0,
+    },
+    ["fire_empty_iron"] = {
+        Source = "fire_iron_empty",
         ShellEjectAt = 0,
     },
     ["reload"] = {
@@ -327,7 +362,32 @@ SWEP.Animations = {
 		SoundTable = {
             {s = path .. "magout.ogg", 	 t = 23/60},
             {s = path .. "magin.ogg",    t = 70/60},
-            {s = path .. "boltdrop.ogg", t = 108/60},
+            {s = path .. "boltdrop.ogg", t = 124/60},
+		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0.2,
+    },
+    ["reload_20"] = {
+        Source = "reload_20",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+            {s = path .. "magout.ogg", 	 t = 23/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0.2,
+    },
+    ["reload_empty_20"] = {
+        Source = "reload_empty_20",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+            {s = path .. "magout.ogg", 	 t = 23/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+            {s = path .. "boltdrop.ogg", t = 124/60},
 		},
         FrameRate = 60,
         LHIK = true,
@@ -352,7 +412,32 @@ SWEP.Animations = {
 		SoundTable = {
             {s = path .. "magout.ogg", 	 t = 28/60},
             {s = path .. "magin.ogg",    t = 70/60},
-            {s = path .. "boltdrop.ogg", t = 108/60}
+            {s = path .. "boltdrop.ogg", t = 124/60}
+		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0.2,
+    },
+    ["reload_9mm_drum"] = {
+        Source = "reload_9mm_drum",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+		},
+        FrameRate = 60,
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0.2,
+    },
+    ["reload_empty_9mm_drum"] = {
+        Source = "reload_9mm_drum_empty",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+            {s = path .. "magout.ogg", 	 t = 28/60},
+            {s = path .. "magin.ogg",    t = 70/60},
+            {s = path .. "boltdrop.ogg", t = 124/60}
 		},
         FrameRate = 60,
         LHIK = true,

@@ -30,10 +30,15 @@ att.Override_Trivia_Class = "Submachine Gun"
 att.Override_Trivia_Calibre = "9x19mm Parabellum"
 
 att.Hook_GetShootSound = function(wep, fsound)
-    if fsound == "weapons/arccw/midnightwolf/acr/fire.ogg" then return "weapons/arccw/midnightwolf/acr/fire_9mm.wav" end
-    elseif fsound == "weapons/arccw/midnightwolf/acr/fire_supp.ogg" then return "weapons/arccw/midnightwolf/acr/fire_supp_9mm.wav" end
-    elseif fsound == "weapons/arccw/midnightwolf/acr/fire_dist.ogg" then return "weapons/arccw/midnightwolf/acr/fire_dist_9mm.wav" end
+    if fsound == "weapons/arccw/midnightwolf/acr/fire.ogg" then return "weapons/arccw/midnightwolf/acr/fire_9mm.ogg"
+    elseif fsound == "weapons/arccw/midnightwolf/acr/fire_supp.ogg" then return "weapons/arccw/midnightwolf/acr/fire_supp_9mm.ogg" end
 end
+
+att.Hook_GetDistantShootSound = function(wep, distancesound)
+    if distancesound == wep.DistantShootSound then 
+        return "weapons/arccw/midnightwolf/acr/fire_dist_9mm.ogg" end
+end
+
 
 att.Hook_SelectReloadAnimation = function(wep, anim)
     if anim == "reload" then

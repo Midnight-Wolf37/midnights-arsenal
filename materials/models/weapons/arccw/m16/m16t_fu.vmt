@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$basetexture"					"models\weapons\arccw\m16\m16t_fu"
+	"$bumpmap"					"models\weapons\arccw\m16\m16t_fu_n"
+
+	"$phong"	"1"
+	"$phongexponent"	"3"
+	"$phongalbedotint"	"1"
+	"$phongboost"	"0.3"
+	"$phongfresnelranges"	"[1 1 1]"			
+}

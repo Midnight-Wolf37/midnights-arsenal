@@ -1,0 +1,19 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\weapons\arccw\m16\v_m16a4_lower"
+	"$bumpmap"     "models\weapons\arccw\m16\v_m16a4_lower_normal"
+	"$envmap" 	"env_cubemap"
+
+	"$normalmapalphaenvmapmask" "1"
+
+	"$envmaptint"	"[0.05 0.05 0.05]"
+
+	"$phong" 		"1"
+	"$phongexponent" 	"40"
+	"$phongboost" 		"1"
+	"$phongtint"		"[0.8 0.9 1]"
+	"$phongfresnelranges"	"[1 4 5]"
+	"$phongalbedotint" 	"1"
+	"$halflambert" 		"1"
+}
+

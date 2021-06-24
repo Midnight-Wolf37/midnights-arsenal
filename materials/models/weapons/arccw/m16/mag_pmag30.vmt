@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/weapons/arccw/c_type89/mag_pmag30"
+	"$bumpmap" "models/weapons/arccw/c_type89/mag_pmag30_n"
+}

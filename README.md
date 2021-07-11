@@ -5,3 +5,4 @@ Currently here:
 
 - Remington ACR
 - Ultimate M16
+- Type 89
